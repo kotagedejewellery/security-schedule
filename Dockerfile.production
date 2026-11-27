@@ -1,0 +1,28 @@
+FROM composer:2 AS vendor
+
+WORKDIR /app
+
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-interaction --no-progress --prefer-dist --no-scripts
+
+FROM php:8.4-apache-bookworm
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libpq-dev \
+    && docker-php-ext-install pdo_pgsql \
+    && a2enmod rewrite \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /var/www/html
+
+COPY . ./
+COPY --from=vendor /app/vendor ./vendor
+COPY docker/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
+
+RUN php artisan package:discover --ansi \
+    && chown -R www-data:www-data storage bootstrap/cache
+
+EXPOSE 80
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
+    CMD php -r 'exit((int) ! @file_get_contents("http://127.0.0.1/"));'

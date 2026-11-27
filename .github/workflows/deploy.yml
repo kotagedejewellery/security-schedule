@@ -1,0 +1,61 @@
+name: Deploy security schedule
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: security-schedule-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      APP_KEY: base64:validation-key
+      APP_DOMAIN: security.example.com
+      DB_DATABASE: security_schedule
+      DB_USERNAME: security_schedule
+      DB_PASSWORD: validation-password
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate production Compose
+        run: docker compose -f compose.production.yml config --quiet
+
+  deploy:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "${{ secrets.VPS_SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy this project only
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes "${VPS_USER}@${VPS_HOST}" 'bash -se' <<'EOF'
+          set -eu
+          cd /opt/apps/security-schedule
+          git pull --ff-only origin main
+          docker compose --env-file .env.production -f compose.production.yml config
+          docker compose --env-file .env.production -f compose.production.yml up -d --build --force-recreate app
+
+          for attempt in $(seq 1 12); do
+            if docker compose --env-file .env.production -f compose.production.yml exec -T app php -r 'exit((int) ! @file_get_contents("http://127.0.0.1/"));'; then
+              exit 0
+            fi
+            sleep 5
+          done
+
+          exit 1
+          EOF

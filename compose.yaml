@@ -1,0 +1,49 @@
+services:
+  test:
+    build: .
+    command: ["php", "artisan", "test"]
+    profiles: ["test"]
+    volumes:
+      - .:/var/www/html
+    environment:
+      APP_ENV: testing
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ":memory:"
+      DB_URL: ""
+      CACHE_STORE: array
+      SESSION_DRIVER: array
+      QUEUE_CONNECTION: sync
+      BCRYPT_ROUNDS: 4
+  app:
+    build: .
+    ports:
+      - "8080:8000"
+    volumes:
+      - .:/var/www/html
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: security_schedule
+      DB_USERNAME: security_schedule
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:?Set ADMIN_EMAIL in .env}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in .env}
+    depends_on:
+      postgres:
+        condition: service_healthy
+  postgres:
+    image: postgres:17.7-alpine
+    environment:
+      POSTGRES_DB: security_schedule
+      POSTGRES_USER: security_schedule
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U security_schedule -d security_schedule"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  postgres-data:

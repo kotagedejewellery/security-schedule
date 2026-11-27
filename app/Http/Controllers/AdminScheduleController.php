@@ -1,0 +1,12 @@
+<?php
+namespace App\Http\Controllers;
+use App\Models\ScheduleAssignment; use App\Models\SecurityOfficer; use Carbon\Carbon; use Illuminate\Http\Request; use Illuminate\Support\Facades\Auth; use Illuminate\Support\Facades\DB; use Illuminate\Support\Facades\RateLimiter;
+class AdminScheduleController extends ScheduleController {
+ private const VALUES=['PLG','HJZ','BDG','SMG','OFF','LEAVE'];
+ public function create(){ return view('admin.login'); }
+ public function login(Request $r){ $c=$r->validate(['email'=>['required','email'],'password'=>['required']]); $key=strtolower($c['email']).'|'.$r->ip(); if(RateLimiter::tooManyAttempts($key,5)) return back()->withErrors(['email'=>'Terlalu banyak percobaan. Coba lagi satu menit.'])->onlyInput('email'); if(!Auth::attempt($c,$r->boolean('remember'))){RateLimiter::hit($key,60);return back()->withErrors(['email'=>'Email atau kata sandi tidak tepat.'])->onlyInput('email');} RateLimiter::clear($key); $r->session()->regenerate(); return redirect()->route(Auth::user()->is_admin?'admin.schedule':'schedule.index'); }
+ public function index(Request $r){ $this->admin(); return view('admin.schedule',$this->scheduleData($r)+['values'=>self::VALUES]); }
+ public function update(Request $r){ $this->admin(); $d=$r->validate(['month'=>['required','date_format:Y-m'],'assignments'=>['required','array'],'assignments.*.*'=>['nullable','in:PLG,HJZ,BDG,SMG,OFF,LEAVE']]); $month=Carbon::createFromFormat('Y-m',$d['month'])->startOfMonth(); $ids=SecurityOfficer::where('is_active',true)->pluck('id')->all(); DB::transaction(function()use($d,$month,$ids){foreach($d['assignments'] as $date=>$entries){if(!Carbon::hasFormat($date,'Y-m-d')||!str_starts_with($date,$month->format('Y-m')))continue;foreach($entries as $id=>$value){if(!in_array((int)$id,$ids,true))continue;$keys=['assignment_date'=>$date,'security_officer_id'=>$id];if(!$value){ScheduleAssignment::where($keys)->delete();continue;}ScheduleAssignment::updateOrCreate($keys,['status'=>$value==='OFF'?'off':($value==='LEAVE'?'leave':'assigned'),'location'=>in_array($value,['OFF','LEAVE'],true)?null:$value]);}}}); return redirect()->route('admin.schedule',['month'=>$month->format('Y-m')])->with('saved','Jadwal disimpan.'); }
+ public function logout(Request $r){ Auth::logout(); $r->session()->invalidate(); $r->session()->regenerateToken(); return redirect()->route('schedule.index'); }
+ private function admin():void { abort_unless(Auth::user()?->is_admin,403); }
+}

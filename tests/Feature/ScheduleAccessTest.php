@@ -59,6 +59,21 @@ class ScheduleAccessTest extends TestCase
         $this->assertAuthenticatedAs($admin);
     }
 
+    public function test_https_proxy_generates_secure_login_asset_and_redirect_urls(): void
+    {
+        $admin = User::factory()->create(['email' => 'admin@example.test', 'password' => 'secret-password', 'is_admin' => true]);
+        $headers = ['HTTP_HOST' => 'schedule.example.test', 'HTTP_X_FORWARDED_PROTO' => 'https'];
+
+        $this->withServerVariables($headers)->get('http://schedule.example.test/login')
+            ->assertOk()
+            ->assertSee('href="https://schedule.example.test/favicon-kgj.png"', false)
+            ->assertSee('action="https://schedule.example.test/admin/login"', false);
+
+        $this->withServerVariables($headers)->post('http://schedule.example.test/admin/login', [
+            'email' => $admin->email, 'password' => 'secret-password',
+        ])->assertRedirect('https://schedule.example.test/admin/jadwal');
+    }
+
     public function test_login_page_submits_natively_and_can_reveal_the_password(): void
     {
         $this->get('/admin/login')->assertOk()

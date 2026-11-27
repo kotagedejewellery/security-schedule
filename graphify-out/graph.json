@@ -308,6 +308,14 @@
       "_origin": "ast"
     },
     {
+      "id": "bootstrap_app_php_request",
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
       "id": "bootstrap_providers",
       "label": "providers.php",
       "file_type": "code",
@@ -1428,11 +1436,20 @@
       "_origin": "ast"
     },
     {
+      "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_https_proxy_generates_secure_login_asset_and_redirect_urls",
+      "label": ".test_https_proxy_generates_secure_login_asset_and_redirect_urls()",
+      "file_type": "code",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L62",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
       "label": ".test_login_page_submits_natively_and_can_reveal_the_password()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L62",
+      "source_location": "L77",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1441,7 +1458,7 @@
       "label": ".test_login_is_rate_limited_after_five_failures()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L78",
+      "source_location": "L93",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1450,7 +1467,7 @@
       "label": ".test_empty_admin_schedule_does_not_offer_a_save_action()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L88",
+      "source_location": "L103",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1459,7 +1476,7 @@
       "label": ".test_admin_editor_makes_clearing_and_horizontal_scroll_explicit()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L97",
+      "source_location": "L112",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1468,7 +1485,7 @@
       "label": ".test_admin_page_uses_an_application_dialog_to_confirm_logout()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L110",
+      "source_location": "L125",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1477,7 +1494,7 @@
       "label": ".test_public_schedule_explains_when_officers_have_no_assignments()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L124",
+      "source_location": "L139",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1486,7 +1503,7 @@
       "label": ".test_public_schedule_shows_when_an_assignment_was_last_updated()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L131",
+      "source_location": "L146",
       "_callable": true,
       "_origin": "ast"
     },
@@ -3319,6 +3336,17 @@
       "_origin": "ast"
     },
     {
+      "source": "bootstrap_app_closure_1",
+      "target": "bootstrap_app_php_request",
+      "relation": "references_constant",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "bootstrap/app.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "bootstrap_providers",
       "target": "app_providers_appserviceprovider_appserviceprovider",
       "relation": "imports",
@@ -5099,7 +5127,7 @@
     },
     {
       "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
-      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
+      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_https_proxy_generates_secure_login_asset_and_redirect_urls",
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
@@ -5109,11 +5137,21 @@
     },
     {
       "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
+      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
       "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_is_rate_limited_after_five_failures",
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L78",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5123,7 +5161,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L88",
+      "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5133,7 +5171,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L97",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5143,7 +5181,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L110",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5153,7 +5191,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L124",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5163,7 +5201,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L131",
+      "source_location": "L146",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6162,6 +6200,18 @@
       "_origin": "ast"
     },
     {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_https_proxy_generates_secure_login_asset_and_redirect_urls",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_empty_admin_schedule_does_not_offer_a_save_action",
       "target": "app_models_user_user",
       "relation": "calls",
@@ -6169,7 +6219,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L90",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6181,7 +6231,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L99",
+      "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6193,7 +6243,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L100",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6205,7 +6255,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L101",
+      "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6217,7 +6267,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L112",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6229,7 +6279,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L126",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6241,7 +6291,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L133",
+      "source_location": "L148",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6253,7 +6303,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L134",
+      "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast"
     },

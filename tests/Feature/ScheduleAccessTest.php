@@ -68,8 +68,11 @@ class ScheduleAccessTest extends TestCase
             ->assertSee('favicon-kgj.png', false)
             ->assertSee('id="login-status"', false)
             ->assertSee('Memeriksa akses', false)
+            ->assertSee("loginSubmit.addEventListener('click'", false)
             ->assertDontSee('disabled = true', false)
-            ->assertDontSee('loginSubmit.disabled', false);
+            ->assertDontSee('loginSubmit.disabled', false)
+            ->assertDontSee("loginForm.addEventListener('submit'", false)
+            ->assertDontSee('preventDefault()', false);
     }
 
     public function test_login_is_rate_limited_after_five_failures(): void

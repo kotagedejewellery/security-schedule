@@ -27,8 +27,7 @@
             <a class="back" href="{{ route('schedule.index') }}">Lihat jadwal publik</a>
         </section>
     </main>
-</body>
-<script>
+    <script>
     const password = document.querySelector('#password');
     const toggle = document.querySelector('[data-password-toggle]');
     toggle.addEventListener('click', () => {
@@ -40,11 +39,14 @@
     });
     const loginForm = document.querySelector('#login-form');
     const loginSubmit = loginForm.querySelector('.submit');
-    loginForm.addEventListener('submit', () => {
+    loginSubmit.addEventListener('click', () => {
+        if (!loginForm.checkValidity()) return;
+
         loginForm.setAttribute('aria-busy', 'true');
         loginSubmit.classList.add('is-loading');
         loginSubmit.querySelector('span').textContent = 'Memeriksa akses…';
         loginForm.querySelector('#login-status').textContent = 'Memeriksa email dan kata sandi.';
     });
-</script>
+    </script>
+</body>
 </html>

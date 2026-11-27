@@ -16,7 +16,7 @@ class ScheduleAccessTest extends TestCase
     {
         $viewer = User::factory()->create(['is_admin' => false]);
 
-        $this->get('/')->assertOk()->assertDontSee('Masuk sebagai admin');
+        $this->get('/')->assertOk()->assertSee('favicon-kgj.png')->assertDontSee('Masuk sebagai admin');
         $this->actingAs($viewer)->get('/')->assertOk();
         $this->actingAs($viewer)->get('/?month=invalid')->assertOk();
         $this->actingAs($viewer)->get('/admin/jadwal')->assertForbidden();
@@ -65,6 +65,7 @@ class ScheduleAccessTest extends TestCase
             ->assertSee('type="submit"', false)
             ->assertSee('data-password-toggle', false)
             ->assertSee('aria-label="Tampilkan kata sandi"', false)
+            ->assertSee('favicon-kgj.png', false)
             ->assertSee('id="login-status"', false)
             ->assertSee('Memeriksa akses', false)
             ->assertDontSee('disabled = true', false)
@@ -108,6 +109,7 @@ class ScheduleAccessTest extends TestCase
         $admin = User::factory()->create(['is_admin' => true]);
 
         $this->actingAs($admin)->get('/admin/jadwal')->assertOk()
+            ->assertSee('favicon-kgj.png')
             ->assertSee('class="admin-title-row"', false)
             ->assertSee('id="confirm-dialog"', false)
             ->assertSee('Keluar dari editor?', false)

@@ -19,10 +19,10 @@ services:
       DB_DATABASE: ${DB_DATABASE:?Set DB_DATABASE in .env.production}
       DB_USERNAME: ${DB_USERNAME:?Set DB_USERNAME in .env.production}
       DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env.production}
-      SESSION_DRIVER: database
+      SESSION_DRIVER: file
       SESSION_LIFETIME: 120
       SESSION_SECURE_COOKIE: "true"
-      CACHE_STORE: database
+      CACHE_STORE: file
       QUEUE_CONNECTION: sync
       LOG_CHANNEL: stderr
       LOG_LEVEL: warning

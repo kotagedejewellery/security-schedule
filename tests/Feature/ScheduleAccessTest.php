@@ -59,11 +59,14 @@ class ScheduleAccessTest extends TestCase
         $this->assertAuthenticatedAs($admin);
     }
 
-    public function test_login_page_has_a_submit_control_and_status_feedback(): void
+    public function test_login_page_submits_natively_and_can_reveal_the_password(): void
     {
         $this->get('/admin/login')->assertOk()
             ->assertSee('type="submit"', false)
-            ->assertSee('id="login-status"', false);
+            ->assertSee('data-password-toggle', false)
+            ->assertSee('aria-label="Tampilkan kata sandi"', false)
+            ->assertDontSee('disabled = true', false)
+            ->assertDontSee('Memeriksa akses', false);
     }
 
     public function test_login_is_rate_limited_after_five_failures(): void

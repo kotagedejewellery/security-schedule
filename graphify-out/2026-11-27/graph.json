@@ -1428,8 +1428,8 @@
       "_origin": "ast"
     },
     {
-      "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_has_a_submit_control_and_status_feedback",
-      "label": ".test_login_page_has_a_submit_control_and_status_feedback()",
+      "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
+      "label": ".test_login_page_submits_natively_and_can_reveal_the_password()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
       "source_location": "L62",
@@ -1441,7 +1441,7 @@
       "label": ".test_login_is_rate_limited_after_five_failures()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L69",
+      "source_location": "L72",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1450,7 +1450,7 @@
       "label": ".test_empty_admin_schedule_does_not_offer_a_save_action()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L79",
+      "source_location": "L82",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1459,7 +1459,7 @@
       "label": ".test_admin_editor_makes_clearing_and_horizontal_scroll_explicit()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L88",
+      "source_location": "L91",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1468,7 +1468,7 @@
       "label": ".test_admin_page_uses_an_application_dialog_to_confirm_logout()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L101",
+      "source_location": "L104",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1477,7 +1477,7 @@
       "label": ".test_public_schedule_explains_when_officers_have_no_assignments()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L114",
+      "source_location": "L117",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1486,7 +1486,7 @@
       "label": ".test_public_schedule_shows_when_an_assignment_was_last_updated()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L121",
+      "source_location": "L124",
       "_callable": true,
       "_origin": "ast"
     },
@@ -5099,7 +5099,7 @@
     },
     {
       "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
-      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_has_a_submit_control_and_status_feedback",
+      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
@@ -5113,7 +5113,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L69",
+      "source_location": "L72",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5123,7 +5123,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L79",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5133,7 +5133,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L88",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5143,7 +5143,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L101",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5153,7 +5153,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L114",
+      "source_location": "L117",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5163,7 +5163,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L121",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6169,7 +6169,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L81",
+      "source_location": "L84",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6181,7 +6181,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L90",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6193,7 +6193,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L91",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6205,7 +6205,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L92",
+      "source_location": "L95",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6217,7 +6217,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L103",
+      "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6229,7 +6229,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L116",
+      "source_location": "L119",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6241,7 +6241,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L123",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6253,7 +6253,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L124",
+      "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast"
     },

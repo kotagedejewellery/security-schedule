@@ -65,8 +65,10 @@ class ScheduleAccessTest extends TestCase
             ->assertSee('type="submit"', false)
             ->assertSee('data-password-toggle', false)
             ->assertSee('aria-label="Tampilkan kata sandi"', false)
+            ->assertSee('id="login-status"', false)
+            ->assertSee('Memeriksa akses', false)
             ->assertDontSee('disabled = true', false)
-            ->assertDontSee('Memeriksa akses', false);
+            ->assertDontSee('loginSubmit.disabled', false);
     }
 
     public function test_login_is_rate_limited_after_five_failures(): void

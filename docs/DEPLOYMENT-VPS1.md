@@ -12,7 +12,7 @@ Konfigurasi ini memakai Traefik yang sudah ada. Jangan mengubah Traefik global, 
 | Redis/cache | Tidak diperlukan; cache dan session memakai PostgreSQL |
 | Worker/scheduler | Tidak diperlukan |
 | Domain | `APP_DOMAIN` (wajib ditentukan owner) |
-| Environment | `/opt/apps/security-schedule/.env.production`, tidak dilacak Git |
+| Environment | `/opt/apps/sistem-security-schedule/.env.production`, tidak dilacak Git |
 | Docker services | `app`, `database` |
 | Network | `app` di `proxy` dan `internal`; database hanya di `internal` |
 | Auto deploy | Push `main` → validasi Compose → SSH → recreate `app` saja → health check |
@@ -22,12 +22,12 @@ Tidak ada host port yang dibuka oleh project ini. Hanya Traefik yang menerima tr
 ## Bootstrap satu kali
 
 1. Pastikan DNS `APP_DOMAIN` sudah mengarah ke VPS 1, dan network Docker `proxy` dari Traefik tersedia.
-2. Di VPS, clone repository ke `/opt/apps/security-schedule` sebagai user `Kotagede-Jewellery`.
+2. Di VPS, clone repository ke `/opt/apps/sistem-security-schedule` sebagai user `Kotagede-Jewellery`.
 3. Salin `.env.production.example` menjadi `.env.production`. Isi domain, `APP_KEY` unik, password database unik, dan kredensial admin awal. Untuk membuat `APP_KEY` tanpa memasang PHP di host, jalankan `docker run --rm php:8.4-cli php -r "echo 'base64:'.base64_encode(random_bytes(32)).PHP_EOL;"`, lalu simpan hasilnya hanya di file tersebut. File ini tidak boleh masuk Git atau log.
 4. Validasi konfigurasi:
 
    ```bash
-   cd /opt/apps/security-schedule
+   cd /opt/apps/sistem-security-schedule
    docker compose --env-file .env.production -f compose.production.yml config
    ```
 

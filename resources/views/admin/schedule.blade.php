@@ -61,6 +61,7 @@
                 </div>
             </section>
         </form>
+        @include('partials.monthly-summary', ['adminSummary' => true])
     </main>
 <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
     <form method="dialog"><h2 id="confirm-title">Keluar dari editor?</h2><p id="confirm-message">Sesi admin akan diakhiri.</p><div class="confirm-actions"><button class="secondary" value="cancel">Batal</button><button id="confirm-action" class="primary" value="confirm">Keluar</button></div></form>

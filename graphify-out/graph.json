@@ -160,7 +160,7 @@
       "label": "ScheduleAssignment",
       "file_type": "code",
       "source_file": "app/Models/ScheduleAssignment.php",
-      "source_location": "L4",
+      "source_location": "L5",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast"
@@ -170,7 +170,16 @@
       "label": ".casts()",
       "file_type": "code",
       "source_file": "app/Models/ScheduleAssignment.php",
-      "source_location": "L4",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "app_models_scheduleassignment_scheduleassignment_setassignmentdateattribute",
+      "label": ".setAssignmentDateAttribute()",
+      "file_type": "code",
+      "source_file": "app/Models/ScheduleAssignment.php",
+      "source_location": "L5",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1332,8 +1341,32 @@
       "_origin": "ast"
     },
     {
+      "id": "resources_views_admin_schedule_blade_php_partials_monthly_summary",
+      "label": "partials.monthly-summary",
+      "file_type": "code",
+      "source_file": "resources/views/admin/schedule.blade.php",
+      "source_location": null,
+      "_origin": "ast"
+    },
+    {
+      "id": "resources_views_partials_monthly_summary_blade",
+      "label": "monthly-summary.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/partials/monthly-summary.blade.php",
+      "source_location": null,
+      "_origin": "ast"
+    },
+    {
       "id": "resources_views_schedule_blade",
       "label": "views/schedule.blade.php",
+      "file_type": "code",
+      "source_file": "resources/views/schedule.blade.php",
+      "source_location": null,
+      "_origin": "ast"
+    },
+    {
+      "id": "resources_views_schedule_blade_php_partials_monthly_summary",
+      "label": "partials.monthly-summary",
       "file_type": "code",
       "source_file": "resources/views/schedule.blade.php",
       "source_location": null,
@@ -1445,11 +1478,20 @@
       "_origin": "ast"
     },
     {
+      "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_admin_logout_redirects_to_login_and_ends_the_session",
+      "label": ".test_admin_logout_redirects_to_login_and_ends_the_session()",
+      "file_type": "code",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L77",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
       "label": ".test_login_page_submits_natively_and_can_reveal_the_password()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L77",
+      "source_location": "L86",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1458,7 +1500,7 @@
       "label": ".test_login_is_rate_limited_after_five_failures()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L93",
+      "source_location": "L102",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1467,7 +1509,7 @@
       "label": ".test_empty_admin_schedule_does_not_offer_a_save_action()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L103",
+      "source_location": "L112",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1476,7 +1518,7 @@
       "label": ".test_admin_editor_makes_clearing_and_horizontal_scroll_explicit()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L112",
+      "source_location": "L121",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1485,7 +1527,7 @@
       "label": ".test_admin_page_uses_an_application_dialog_to_confirm_logout()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L125",
+      "source_location": "L134",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1494,7 +1536,7 @@
       "label": ".test_public_schedule_explains_when_officers_have_no_assignments()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L139",
+      "source_location": "L148",
       "_callable": true,
       "_origin": "ast"
     },
@@ -1503,7 +1545,25 @@
       "label": ".test_public_schedule_shows_when_an_assignment_was_last_updated()",
       "file_type": "code",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L146",
+      "source_location": "L155",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_counts_saved_off_and_leave_per_officer_on_both_pages",
+      "label": ".test_monthly_summary_counts_saved_off_and_leave_per_officer_on_both_pages()",
+      "file_type": "code",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L163",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_updates_after_saving_changing_and_clearing_assignments",
+      "label": ".test_monthly_summary_updates_after_saving_changing_and_clearing_assignments()",
+      "file_type": "code",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L188",
       "_callable": true,
       "_origin": "ast"
     },
@@ -2959,7 +3019,7 @@
     },
     {
       "source": "app_models_scheduleassignment",
-      "target": "illuminate_database_eloquent_model",
+      "target": "carbon_carbon",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2970,11 +3030,22 @@
     },
     {
       "source": "app_models_scheduleassignment",
+      "target": "illuminate_database_eloquent_model",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/ScheduleAssignment.php",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "app_models_scheduleassignment",
       "target": "app_models_scheduleassignment_scheduleassignment",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/ScheduleAssignment.php",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2984,7 +3055,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/ScheduleAssignment.php",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2994,7 +3065,17 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/ScheduleAssignment.php",
-      "source_location": "L4",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "app_models_scheduleassignment_scheduleassignment",
+      "target": "app_models_scheduleassignment_scheduleassignment_setassignmentdateattribute",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/ScheduleAssignment.php",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4926,6 +5007,28 @@
       "_origin": "ast"
     },
     {
+      "source": "resources_views_admin_schedule_blade",
+      "target": "resources_views_admin_schedule_blade_php_partials_monthly_summary",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "resources/views/admin/schedule.blade.php",
+      "source_location": null,
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "resources_views_schedule_blade",
+      "target": "resources_views_schedule_blade_php_partials_monthly_summary",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "resources/views/schedule.blade.php",
+      "source_location": null,
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "routes_console",
       "target": "illuminate_foundation_inspiring",
       "relation": "imports",
@@ -5137,7 +5240,7 @@
     },
     {
       "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
-      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
+      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_admin_logout_redirects_to_login_and_ends_the_session",
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
@@ -5147,11 +5250,21 @@
     },
     {
       "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
+      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_page_submits_natively_and_can_reveal_the_password",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
       "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_login_is_rate_limited_after_five_failures",
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L93",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5161,7 +5274,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L103",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5171,7 +5284,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L112",
+      "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5181,7 +5294,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L125",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5191,7 +5304,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L139",
+      "source_location": "L148",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5201,7 +5314,27 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L146",
+      "source_location": "L155",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
+      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_counts_saved_off_and_leave_per_officer_on_both_pages",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L163",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest",
+      "target": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_updates_after_saving_changing_and_clearing_assignments",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L188",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6212,19 +6345,19 @@
       "_origin": "ast"
     },
     {
-      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_empty_admin_schedule_does_not_offer_a_save_action",
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_admin_logout_redirects_to_login_and_ends_the_session",
       "target": "app_models_user_user",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L105",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_admin_editor_makes_clearing_and_horizontal_scroll_explicit",
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_empty_admin_schedule_does_not_offer_a_save_action",
       "target": "app_models_user_user",
       "relation": "calls",
       "context": "call",
@@ -6237,13 +6370,25 @@
     },
     {
       "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_admin_editor_makes_clearing_and_horizontal_scroll_explicit",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_admin_editor_makes_clearing_and_horizontal_scroll_explicit",
       "target": "app_models_securityofficer_securityofficer",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L115",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6255,7 +6400,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L116",
+      "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6267,7 +6412,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L127",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6279,7 +6424,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L141",
+      "source_location": "L150",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6291,7 +6436,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L148",
+      "source_location": "L157",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6303,7 +6448,67 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/Feature/ScheduleAccessTest.php",
-      "source_location": "L149",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_counts_saved_off_and_leave_per_officer_on_both_pages",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L165",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_counts_saved_off_and_leave_per_officer_on_both_pages",
+      "target": "app_models_securityofficer_securityofficer",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_counts_saved_off_and_leave_per_officer_on_both_pages",
+      "target": "app_models_scheduleassignment_scheduleassignment",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L171",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_updates_after_saving_changing_and_clearing_assignments",
+      "target": "app_models_user_user",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L190",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_feature_scheduleaccesstest_scheduleaccesstest_test_monthly_summary_updates_after_saving_changing_and_clearing_assignments",
+      "target": "app_models_securityofficer_securityofficer",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "tests/Feature/ScheduleAccessTest.php",
+      "source_location": "L191",
       "weight": 1.0,
       "_origin": "ast"
     },

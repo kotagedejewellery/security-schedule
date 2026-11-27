@@ -42,6 +42,7 @@
                 @endif
             </div>
         </section>
+        @include('partials.monthly-summary')
         <footer class="footnote"><div class="legend" aria-label="Keterangan status"><span><i></i> Bertugas</span><span><i class="off-dot"></i> Libur</span><span><i class="leave-dot"></i> Cuti</span></div><details class="location-codes"><summary>Kode lokasi</summary><p>PLG: Palagan · HJZ: Hijaz · BDG: Bandung · SMG: Semarang</p></details></footer>
     </main>
 <script>

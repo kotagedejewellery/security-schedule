@@ -74,6 +74,15 @@ class ScheduleAccessTest extends TestCase
         ])->assertRedirect('https://schedule.example.test/admin/jadwal');
     }
 
+    public function test_admin_logout_redirects_to_login_and_ends_the_session(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+
+        $this->actingAs($admin)->post('/admin/logout')->assertRedirect('/admin/login');
+        $this->assertGuest();
+        $this->get('/admin/jadwal')->assertRedirect('/login');
+    }
+
     public function test_login_page_submits_natively_and_can_reveal_the_password(): void
     {
         $this->get('/admin/login')->assertOk()
@@ -149,5 +158,53 @@ class ScheduleAccessTest extends TestCase
         ScheduleAssignment::create(['assignment_date' => '2026-11-01', 'security_officer_id' => $officer->id, 'status' => 'assigned', 'location' => 'PLG']);
 
         $this->get('/?month=2026-11')->assertOk()->assertSee('Diperbarui');
+    }
+
+    public function test_monthly_summary_counts_saved_off_and_leave_per_officer_on_both_pages(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+        $first = SecurityOfficer::create(['name' => 'Mustangin', 'base_location' => 'PLG']);
+        $second = SecurityOfficer::create(['name' => 'Fikri', 'base_location' => 'HJZ']);
+        SecurityOfficer::create(['name' => 'Bayu', 'base_location' => 'BDG']);
+
+        foreach ([['2026-11-01', 'off'], ['2026-11-02', 'off'], ['2026-11-03', 'leave'], ['2026-12-01', 'off']] as [$date, $status]) {
+            ScheduleAssignment::create(['assignment_date' => $date, 'security_officer_id' => $first->id, 'status' => $status]);
+        }
+        ScheduleAssignment::create(['assignment_date' => '2026-11-01', 'security_officer_id' => $second->id, 'status' => 'assigned', 'location' => 'HJZ']);
+
+        foreach (['/?month=2026-11', '/admin/jadwal?month=2026-11'] as $url) {
+            $this->actingAs($admin)->get($url)->assertOk()
+                ->assertSee('Rekap November 2026')
+                ->assertSee('Rekap hanya menghitung jadwal yang sudah diisi.')
+                ->assertSee('<tr><th scope="row">Mustangin</th><td>2 hari</td><td>1 hari</td></tr>', false)
+                ->assertSee('<tr><th scope="row">Fikri</th><td>0 hari</td><td>0 hari</td></tr>', false)
+                ->assertSee('<tr><th scope="row">Bayu</th><td colspan="2">Belum ada jadwal</td></tr>', false);
+        }
+
+        $this->actingAs($admin)->get('/admin/jadwal?month=2026-11')->assertSee('Simpan perubahan untuk memperbarui rekap.');
+        $this->get('/?month=2027-01')->assertSee('Belum ada jadwal untuk direkap.');
+    }
+
+    public function test_monthly_summary_updates_after_saving_changing_and_clearing_assignments(): void
+    {
+        $admin = User::factory()->create(['is_admin' => true]);
+        $officer = SecurityOfficer::create(['name' => 'Mustangin', 'base_location' => 'PLG']);
+        $url = '/admin/jadwal?month=2026-11';
+
+        foreach (['OFF' => ['1 hari', '0 hari'], 'LEAVE' => ['0 hari', '1 hari'], '' => null] as $value => $expected) {
+            $this->actingAs($admin)->put('/admin/jadwal', [
+                'month' => '2026-11',
+                'assignments' => ['2026-11-01' => [$officer->id => $value]],
+            ])->assertRedirect($url);
+
+            foreach (['/?month=2026-11', $url] as $page) {
+                $response = $this->actingAs($admin)->get($page)->assertOk();
+                if ($expected) {
+                    $response->assertSee('<tr><th scope="row">Mustangin</th><td>'.$expected[0].'</td><td>'.$expected[1].'</td></tr>', false);
+                } else {
+                    $response->assertSee('Belum ada jadwal untuk direkap.');
+                }
+            }
+        }
     }
 }
